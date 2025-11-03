@@ -59,6 +59,8 @@ Before developing the ETL automation, an **Exploratory Data Analysis (EDA)** was
 - **Inventory:** cleaned only (no storage).
 ---
 - ## 🗄️ Database Model (MySQL on VPS)
+A **fully relational database** was **designed and implemented from scratch** in **MySQL**, hosted on a **private VPS (Hostinger)**.  
+The schema was modeled specifically for analytical purposes, ensuring data normalization, referential integrity, and scalability for future BI, automation layers and own software for business.
 
 **Main tables:**
 - `Cliente`, `Producto`, `Venta`, `Detalleventa`, `Direcciones`, `Empleados`, `Marca`, `Categoria`, `Cotizacion`,`DetalleCotizacion`.
