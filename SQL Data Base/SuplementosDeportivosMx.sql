@@ -1,10 +1,15 @@
 CREATE DATABASE IF NOT EXISTS SuplementosDeportivosMx;
 
+--
+-- Create Table `Categoria`
+--
 CREATE TABLE `Categoria` (
   `idCategoria` int NOT NULL,
   `nombreCategoria` varchar(100) NOT NULL
 );
-
+--
+-- Create Table `Clientes`
+--
 CREATE TABLE `Clientes` (
   `telefono` varchar(20) NOT NULL,
   `idEmpleado` int NOT NULL,
@@ -16,7 +21,9 @@ CREATE TABLE `Clientes` (
   `tipoCliente` enum('Publico','Mayoreo','Super Mayoreo','VIP') NOT NULL,
   `porcentajeComision` decimal(5,4) NOT NULL DEFAULT '0.0000'
 );
-
+--
+-- Create Table `Cotizacion`
+--
 CREATE TABLE `Cotizacion` (
   `idCotizacion` int NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -30,7 +37,9 @@ CREATE TABLE `Cotizacion` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
+--
+-- Create Table `DetalleCotizacion`
+--
 CREATE TABLE `DetalleCotizacion` (
   `idDetalleCotizacion` int NOT NULL,
   `idCotizacion` int NOT NULL,
@@ -40,7 +49,9 @@ CREATE TABLE `DetalleCotizacion` (
   `descuentoProducto` decimal(12,2) NOT NULL DEFAULT '0.00',
   `totalDetalleCotizacion` decimal(12,2) GENERATED ALWAYS AS (((`cantidad` * `precioUnitario`) - `descuentoProducto`)) STORED
 );
-
+--
+-- Create Table `DetalleVenta`
+--
 CREATE TABLE `DetalleVenta` (
   `idDetalleVenta` int NOT NULL,
   `idVenta` int NOT NULL,
@@ -57,7 +68,9 @@ CREATE TABLE `DetalleVenta` (
   `montoComision` decimal(12,2) GENERATED ALWAYS AS ((case when ((`totalDetalleVenta` - `costoSnapShotTotal`) < 1) then 0 else round(((`totalDetalleVenta` - `costoSnapShotTotal`) * ifnull(`porcentajeComisionAplicada`,0)),2) end)) STORED,
   `margenEmpresa` decimal(12,2) GENERATED ALWAYS AS (((`totalDetalleVenta` - `costoSnapShotTotal`) - greatest(round(((`totalDetalleVenta` - `costoSnapShotTotal`) * ifnull(`porcentajeComisionAplicada`,0)),2),0))) STORED
 );
-
+--
+-- Create Table `Direcciones`
+--
 CREATE TABLE `Direcciones` (
   `idDireccion` int NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -69,7 +82,9 @@ CREATE TABLE `Direcciones` (
   `ciudad` varchar(100) NOT NULL,
   `estado` enum('Aguascalientes','Baja California','Baja California Sur','Campeche','Chiapas','Chihuahua','Ciudad de México','Coahuila','Colima','Durango','Guanajuato','Guerrero','Hidalgo','Jalisco','México','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas') DEFAULT NULL
 );
-
+--
+-- Create Table `Empleados`
+--
 CREATE TABLE `Empleados` (
   `idEmpleado` int NOT NULL,
   `nombreEmpleado` varchar(120) NOT NULL,
@@ -85,12 +100,16 @@ CREATE TABLE `Empleados` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
+--
+-- Create Table `Marca`
+--
 CREATE TABLE `Marca` (
   `idMarca` int NOT NULL,
   `nombreMarca` varchar(100) NOT NULL
 );
-
+--
+-- Create Table `Producto`
+--
 CREATE TABLE `Producto` (
   `idProducto` int NOT NULL,
   `idCategoria` int NOT NULL,
@@ -109,7 +128,9 @@ CREATE TABLE `Producto` (
   `fechaCaducidad` date DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL
 );
-
+--
+-- Create Table `Venta`
+--
 CREATE TABLE `Venta` (
   `idVenta` int NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -128,6 +149,9 @@ CREATE TABLE `Venta` (
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+--
+-- Index Table `Categoria`
+--
 ALTER TABLE `Categoria`
   ADD PRIMARY KEY (`idCategoria`),
   ADD UNIQUE KEY `uq_categoria_nombre` (`nombreCategoria`);
@@ -320,3 +344,4 @@ ALTER TABLE `Venta`
   ADD CONSTRAINT `fk_venta_empleado` FOREIGN KEY (`idEmpleado`) REFERENCES `Empleados` (`idEmpleado`) ON UPDATE CASCADE;
 
 COMMIT;
+
