@@ -1,6 +1,5 @@
 CREATE DATABASE IF NOT EXISTS SuplementosDeportivosMx;
 
-
 CREATE TABLE `Categoria` (
   `idCategoria` int NOT NULL,
   `nombreCategoria` varchar(100) NOT NULL
@@ -319,4 +318,5 @@ ALTER TABLE `Venta`
   ADD CONSTRAINT `fk_venta_cotizacion` FOREIGN KEY (`idCotizacion`) REFERENCES `Cotizacion` (`idCotizacion`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_venta_direccion` FOREIGN KEY (`idDireccion`) REFERENCES `Direcciones` (`idDireccion`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_venta_empleado` FOREIGN KEY (`idEmpleado`) REFERENCES `Empleados` (`idEmpleado`) ON UPDATE CASCADE;
+
 COMMIT;
