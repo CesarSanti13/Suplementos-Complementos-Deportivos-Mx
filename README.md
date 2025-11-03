@@ -135,3 +135,15 @@ All information presented here — including the data model, SQL schema, and ETL
 However, **no real business data, financial information, or client identifiers** are included. All datasets, screenshots, and visuals have been **sanitized, anonymized, or reconstructed** using simulated data solely for demonstration purposes.
 
 This publication aims to **demonstrate the engineering, analytical, and architectural capabilities** behind the project, while maintaining full respect for the client’s intellectual property and data privacy.
+ ---
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Handling-green)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-orange)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
+![SQL](https://img.shields.io/badge/SQL-Queries-blue)
+![phpMyAdmin](https://img.shields.io/badge/phpMyAdmin-Management-lightgrey)
+![n8n](https://img.shields.io/badge/n8n-Automation-red)
+![ETL](https://img.shields.io/badge/ETL-Data%20Pipeline-green)
+![Hostinger](https://img.shields.io/badge/Hostinger-VPS-lightgrey)
+![Linux](https://img.shields.io/badge/Linux-Server-black)
+![Looker Studio](https://img.shields.io/badge/Looker%20Studio-BI%20Dashboard-purple)
