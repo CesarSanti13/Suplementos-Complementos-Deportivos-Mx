@@ -101,6 +101,9 @@ The database follows a **3NF relational structure** optimized for analytics, wit
 **Users:** business management and marketing teams for driven decisions.  
 **Connection:** direct SQL view (`FeedLookerStudio`) from VPS database.
 
+<img width="700" height="700" alt="image" src="Dashboard Imgs/Dashboard Report Evolution Suplementos Mx.png" />
+<img width="700" height="700" alt="image" src="Dashboard Imgs/Dashboard Report Warm Map Suplementos Mx.png" />
+
 ---
 
 ## ⚙️ Tech Stack
